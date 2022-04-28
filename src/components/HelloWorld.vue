@@ -16,7 +16,7 @@
 
 <script>
 import { db } from "../firebaseDb";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 export default {
   data() {
     return {
@@ -26,6 +26,16 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
+      getDocs(collection(db, "test"))
+        .then((data) => {
+          const dataArr = data._snapshot.docChanges;
+          dataArr.forEach((item) =>
+            console.log(item.doc.data.value.mapValue.fields.email)
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       addDoc(collection(db, "test"), this.user)
         .then(() => {
           alert("User Created!");
@@ -35,16 +45,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-      // db.collection("test")
-      //   .add(this.user)
-      //   .then(() => {
-      //     alert("User successfully created!");
-      //     this.user.name = "";
-      //     this.user.email = "";
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
     },
   },
 };
