@@ -8,7 +8,7 @@
       'background-size': 'cover',
     }"
   >
-    <h1>Next Up</h1>
+    <h1>NextUp</h1>
     <LoginForm />
   </div>
 </template>
