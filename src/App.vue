@@ -1,15 +1,14 @@
 <template>
-  <h1>NextUp</h1>
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <LoginPage msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import LoginPage from "./components/LoginPage.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    LoginPage,
   },
 };
 </script>
@@ -21,6 +20,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 </style>
