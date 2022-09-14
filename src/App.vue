@@ -1,16 +1,10 @@
 <template>
-  <RegisterPage msg="Welcome to Your Vue.js App" />
+  <router-view />
 </template>
 
 <script>
-// import LoginPage from "./components/LoginPage.vue";
-import RegisterPage from "./components/RegisterPage.vue";
-
 export default {
   name: "App",
-  components: {
-    RegisterPage,
-  },
 };
 </script>
 
