@@ -1,14 +1,15 @@
 <template>
-  <LoginPage msg="Welcome to Your Vue.js App" />
+  <RegisterPage msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
-import LoginPage from "./components/LoginPage.vue";
+// import LoginPage from "./components/LoginPage.vue";
+import RegisterPage from "./components/RegisterPage.vue";
 
 export default {
   name: "App",
   components: {
-    LoginPage,
+    RegisterPage,
   },
 };
 </script>
@@ -20,8 +21,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  top: 0;
-  bottom: 0;
-  left: 0;
 }
 </style>
