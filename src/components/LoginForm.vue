@@ -3,63 +3,77 @@
     <form @submit.prevent="onSubmit">
       <div>
         <input
-          v-model="user.name"
-          placeholder="USERNAME"
-          class="input input-username"
+          v-model="email"
+          placeholder="EMAIL"
+          class="input input-email"
           required
         />
       </div>
       <div>
         <input
-          v-model="user.email"
+          v-model="password"
           class="input input-password"
           placeholder="PASSWORD"
-          type="email"
+          type="password"
           required
         />
       </div>
-      <button type="submit" class="login login-button">LOGIN</button>
+      <p v-if="errorMsg">{{ errorMsg }}</p>
+      <button @click="login" class="login login-button">LOGIN</button>
     </form>
-    <label>Don't Have An Account? Sign Up</label>
+    <label>Don't Have An Account? </label>
+    <router-link
+      class="router-link"
+      style="font-size: 12px; font-weight: bold"
+      to="./register"
+      >Sign Up</router-link
+    >
   </div>
 </template>
 <script>
-import { db } from "../firebaseDb";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import router from "../router";
 export default {
   data() {
     return {
-      user: {},
+      email: null,
+      password: null,
+      errorMsg: null,
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      getDocs(collection(db, "test"))
-        .then((data) => {
-          const dataArr = data._snapshot.docChanges;
-          dataArr.forEach((item) =>
-            console.log(item.doc.data.value.mapValue.fields.email)
-          );
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      addDoc(collection(db, "test"), this.user)
+    login() {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
-          alert("User Created!");
-          this.user.name = "";
-          this.user.email = "";
+          alert("Successfully Signed In!");
+          router.push("./home");
         })
         .catch((error) => {
-          console.log(error);
+          switch (error.code) {
+            case "auth/invalid-email":
+              this.errorMsg = "Invalid Email";
+              break;
+            case "auth/user-not-found":
+              this.errorMsg = "No account with that email was found";
+              break;
+            case "auth/wrong-password":
+              this.errorMsg = "Incorrect password";
+              break;
+            default:
+              this.errorMsg = "Email or password was incorrect";
+              break;
+          }
         });
     },
   },
 };
 </script>
 <style scoped>
+.router-link {
+  text-decoration: none;
+  color: white;
+}
 label {
   font-size: 10px;
   color: white;
@@ -74,7 +88,7 @@ input::placeholder {
   font-weight: 300;
   color: white;
 }
-.input-username {
+.input-email {
   width: 200px;
   height: 25px;
   border-radius: 5px;

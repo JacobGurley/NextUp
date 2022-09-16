@@ -1,17 +1,22 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <div>
-        <input
-          v-model="user.name"
-          placeholder="FULLNAME"
-          class="input input-form"
-          required
-        />
+      <div v-if="validationErrors.length">
+        <button @click="resetError()" class="delete"></button>
+        <div class="content">
+          Please resolve the following error(s) before proceeding.
+          <ul style="margin-top: 0.3em; margin-left: 1em">
+            <li
+              v-for="(error, index) in validationErrors"
+              :key="`error-${index}`"
+              v-html="error"
+            />
+          </ul>
+        </div>
       </div>
       <div>
         <input
-          v-model="user.email"
+          v-model="email"
           class="input input-form"
           placeholder="EMAIL"
           type="email"
@@ -19,56 +24,82 @@
         />
       </div>
       <div>
-        <input class="input input-form" placeholder="USERNAME" required />
-      </div>
-      <div>
-        <input class="input input-form" placeholder="PASSWORD" required />
-      </div>
-      <div>
         <input
+          v-model="password"
           class="input input-form"
-          placeholder="RE-ENTER PASSWORD"
+          type="password"
+          placeholder="PASSWORD"
           required
         />
       </div>
-      <button type="submit" class="register register-button">
+      <div>
+        <input
+          v-model="passwordRepeat"
+          class="input input-form"
+          placeholder="RE-ENTER PASSWORD"
+          type="password"
+          required
+        />
+      </div>
+      <button @click="validate" class="register register-button">
         CREATE ACCOUNT
       </button>
     </form>
   </div>
 </template>
 <script>
-import { db } from "../firebaseDb";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import router from "../router";
 export default {
   data() {
     return {
-      user: {},
+      email: null,
+      password: null,
+      passwordRepeat: null,
+      validationErrors: [],
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      getDocs(collection(db, "test"))
-        .then((data) => {
-          const dataArr = data._snapshot.docChanges;
-          dataArr.forEach((item) =>
-            console.log(item.doc.data.value.mapValue.fields.email)
-          );
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      addDoc(collection(db, "test"), this.user)
+    register() {
+      createUserWithEmailAndPassword(getAuth(), this.email, this.password)
         .then(() => {
-          alert("User Created!");
-          this.user.name = "";
-          this.user.email = "";
+          alert("Successfully registered!");
+          router.push("/home");
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error.code);
+          alert(error.message);
         });
+    },
+    resetError() {
+      this.validationErrors = [];
+    },
+    validate() {
+      // Clear the errors before we validate again
+      this.resetError();
+      // email validation
+      if (!this.email) {
+        this.validationErrors.push("<strong>E-mail</strong> cannot be empty.");
+      }
+      if (/.+@.+/.test(this.email) != true) {
+        this.validationErrors.push("<strong>E-mail</strong> must be valid.");
+      }
+      // password validation
+      if (!this.password) {
+        this.validationErrors.push("<strong>Password</strong> cannot be empty");
+      }
+      if (/.{6,}/.test(this.password) != true) {
+        this.validationErrors.push(
+          "<strong>Password</strong> must be at least 6 characters long"
+        );
+      }
+      if (!(this.password === this.passwordRepeat)) {
+        this.validationErrors.push("<strong>Passwords</strong> did not match");
+      }
+      // when valid then sign in
+      if (this.validationErrors.length <= 0) {
+        this.register();
+      }
     },
   },
 };
