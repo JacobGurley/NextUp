@@ -50,6 +50,8 @@
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import router from "../router";
+import { getDatabase, ref, set } from "firebase/database";
+const db = getDatabase();
 export default {
   data() {
     return {
@@ -62,10 +64,16 @@ export default {
   methods: {
     register() {
       createUserWithEmailAndPassword(getAuth(), this.email, this.password)
-        .then(() => {
+        .then((userCredential) => {
+          const user = userCredential.user;
+          set(ref(db, "users/" + user.uid), {
+            email: this.email,
+            password: this.password,
+          });
           alert("Successfully registered!");
           router.push("/home");
         })
+
         .catch((error) => {
           console.log(error.code);
           alert(error.message);
