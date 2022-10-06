@@ -14,13 +14,6 @@
         >
           NextUp
         </router-link>
-        <!-- <button
-          class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-          type="button"
-          v-on:click="toggleNavbar()"
-        >
-          <i class="fas fa-bars"></i>
-        </button> -->
       </div>
       <div class="lg:flex lg:flex-grow items-center">
         <ul class="flex flex-col lg:flex-row list-none ml-auto">
