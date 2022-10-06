@@ -1,4 +1,5 @@
 <template>
+  <Nav />
   <div
     class="homepage"
     :style="{
@@ -7,10 +8,16 @@
       'background-repeat': 'no-repeat',
       'background-size': 'cover',
     }"
-  >
-    <h1>Homepage</h1>
-  </div>
+  ></div>
 </template>
+<script>
+import Nav from "./NavBar.vue";
+export default {
+  components: {
+    Nav,
+  },
+};
+</script>
 <style scoped>
 h1 {
   color: white;
