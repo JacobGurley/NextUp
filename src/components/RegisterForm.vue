@@ -139,5 +139,6 @@ input::placeholder {
   height: 30px;
   margin-top: 30px;
   border-radius: 5px;
+  background: white;
 }
 </style>

@@ -1,11 +1,13 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import "v-calendar/dist/style.css";
+import VCalendar from "v-calendar";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import './assets/tailwind.css'
+import "./assets/tailwind.css";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,4 +26,5 @@ initializeApp(firebaseConfig);
 
 const app = createApp(App);
 app.use(router);
+app.use(VCalendar, {});
 app.mount("#app");
