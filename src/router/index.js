@@ -16,6 +16,26 @@ const router = createRouter({
       path: "/creategame",
       component: () => import("../components/CreateGamePage.vue"),
     },
+    {
+      path: "/tutorial",
+      component: () => import("../components/TutorialPage.vue")
+    },
+    {
+      path: "/basketball",
+      component: () => import("../components/BasketballPage.vue")
+    },
+    {
+      path: "/football",
+      component: () => import("../components/FootballPage.vue")
+    },
+    {
+      path: "/soccer",
+      component: () => import("../components/SoccerPage.vue")
+    },
+    {
+      path: "/createteam",
+      component: () => import("../components/CreateTeamPage.vue")
+    },
   ],
 });
 
