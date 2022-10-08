@@ -16,6 +16,10 @@ const router = createRouter({
       path: "/creategame",
       component: () => import("../components/CreateGamePage.vue"),
     },
+    {
+      path: "/createteam",
+      component: () => import("../components/CreateTeamPage.vue"),
+    },
   ],
 });
 
