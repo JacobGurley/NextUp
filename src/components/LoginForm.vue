@@ -89,6 +89,7 @@ input::placeholder {
   color: white;
 }
 .input-email {
+  margin-top: 15px;
   width: 200px;
   height: 25px;
   border-radius: 5px;
