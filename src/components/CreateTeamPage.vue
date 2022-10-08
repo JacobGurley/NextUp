@@ -72,6 +72,7 @@
       <h2>CREATE TEAM</h2>
   </div>-->
   </body>
+  <TeamForm />
   </template>
 
   <script scope>
