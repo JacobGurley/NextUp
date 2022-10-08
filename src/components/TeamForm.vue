@@ -1,6 +1,9 @@
 <template>
   <div class="w-full max-w-xs">
-    <form class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form
+      @submit.prevent="onSubmit"
+      class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
       <h1 class="text-white mb-5 font-bold text-xl">Create Team</h1>
       <div class="mb-4">
         <label class="block text-white text-sm font-bold mb-2" for="teamName">
@@ -50,7 +53,7 @@ const db = getDatabase();
 export default {
   data() {
     return {
-      teamnName: null,
+      teamName: null,
       sport: null,
       numPlayers: null,
     };
@@ -63,6 +66,9 @@ export default {
         sport: this.sport,
         numberofplayers: this.numPlayers,
       });
+      this.teamName = null;
+      this.sport = null;
+      this.numPlayers = null;
     },
   },
 };
