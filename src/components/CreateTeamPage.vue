@@ -8,6 +8,7 @@
     </a>
   </div>
   
+  <!--Test-->
   <!-- The navigation menu -->
   <div class="navbar">
     <a href="#home">Home</a>
