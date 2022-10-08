@@ -28,7 +28,7 @@
     <a href="http://localhost:8080/createteam">Create Team</a>
     <a href="#contact">Contact Us</a>
   </div>
-  
+  <!--
   <div class="team">
       <h1>CREATE TEAM</h1>
   
@@ -57,7 +57,8 @@
       required 
       />
     </div>
-  </div>
+  </div>-->
+
   <!--
   <div class="team">
       <h1>CREATE TEAM</h1>
@@ -72,6 +73,16 @@
   </div>-->
   </body>
   </template>
+
+  <script scope>
+    import TeamForm from "./TeamForm.vue";
+
+    export default{
+      components: {
+        TeamForm,
+      },
+    };
+  </script>
   
   <style scoped>
       *{
