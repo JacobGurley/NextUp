@@ -8,7 +8,6 @@
     </a>
   </div>
   
-  <!--Test-->
   <!-- The navigation menu -->
   <div class="navbar">
     <a href="#home">Home</a>
@@ -28,53 +27,17 @@
     <a href="http://localhost:8080/createteam">Create Team</a>
     <a href="#contact">Contact Us</a>
   </div>
-  <!--
-  <div class="team">
-      <h1>CREATE TEAM</h1>
-  
-    <div class="name">
-      <h2>TEAM NAME</h2>
-      <input 
-        v-model="teamname"
-        class="input input-teamname"
-        required
-        /> 
-    </div>
-    <div class="sport">
-      <h2>SPORT</h2>
-      <input 
-        v-model="sport"
-        class="input input-sport"
-        required
-        />
-    </div>
-    <div class="players">
-      <h2>NUMBER OF PLAYERS</h2>
-      <input
-      type="number"
-      v-model="players"
-      class="input input-players"
-      required 
-      />
-    </div>
-  </div>-->
 
-  <!--
-  <div class="team">
-      <h1>CREATE TEAM</h1>
-      <label for="TeamName">TEAM NAME</label>
-      <input type="text" id="TeamName" name="TeamName">
-      <label for="Sport">SPORT</label>
-      <input type="text" id="Sport" name="Sport">
-      <label for="NumberofPlayers">NUMBER OF PLAYERS</label>
-      <input type="number" id="NumberofPlayers" name="NumberofPlayers">
+  <!--Calls the TeamForm-->
+  <div class="createteam">
+    <TeamForm />
+  </div>
   
-      <h2>CREATE TEAM</h2>
-  </div>-->
   </body>
-  <TeamForm />
+  
   </template>
 
+  <!--Needed for the TeamForm to link-->
   <script scope>
     import TeamForm from "./TeamForm.vue";
 
@@ -180,46 +143,13 @@
   .subnav:hover .subnav-content {
     display: block;
   }
-  
-  
-  /*Team Creation box*/
-  .team{
-    background-color: #333;
-    color: white;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 10%;
-    border-radius: 25px;
-    height: 350px;
-    width: 700px;
-  }
-  
-  /*Create Team header*/
-  .team h1{
-      font-family: "Montserrat";
-      padding-right: 550px;
-      padding-top: 10px;
-  }
-  
-  /*Team Name header*/ 
-  .name{
-      font-size: 14px;
-      font-family: "Montserrat";
-      padding-top: 20px;
-  }
-  
-  /*Sport header*/
-  .sport{
-      font-size: 14px;
-      font-family: "Montserrat";
-      padding-top: 20px;
-  }
-  
-  /*Number of Players header */
-  .players{
-      font-size: 14px;
-      font-family: "Montserrat";
-      padding-top: 20px;
+   
+  /*Moves the create team form*/
+  .createteam{
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
   }
   </style>
   
