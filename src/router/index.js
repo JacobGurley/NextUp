@@ -20,6 +20,14 @@ const router = createRouter({
       path: "/createteam",
       component: () => import("../components/CreateTeamPage.vue"),
     },
+    {
+      path: "/profilepage",
+      component: () => import("../components/ProfilePage.vue"),
+    },
+    {
+      path: "/contactpage",
+      component: () => import("../components/ContactPage.vue"),
+    },
   ],
 });
 
