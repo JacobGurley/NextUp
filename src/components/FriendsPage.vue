@@ -28,6 +28,7 @@
       <a href="#contact">Contact Us</a>
     </div>
 
+    <!--Calls FriendForm-->
     <div class="friend">
       <FriendForm />
    </div>
@@ -35,6 +36,7 @@
     
     </template>
 
+  <!--Needed for the TeamForm to link-->
   <script scope>
   import FriendForm from "./FriendForm.vue";
 
@@ -140,7 +142,7 @@
 .subnav:hover .subnav-content {
   display: block;
 }
-/*Moves the create team form*/
+/*Moves the friend form*/
 .friend{
   font-family: "Montserrat";
   display: flex;

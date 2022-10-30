@@ -1,3 +1,4 @@
+<!--Styles the FriendForm-->
 <template>
     <div class="w-full max-w-xs">
       <form class="bg-neutral-700 shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -23,21 +24,36 @@
       </form>
     </div>
   </template>
+<!--Creating a new Id for friends-->
 <script>
+import { getAuth, createFriend } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
+import router from "../router";
 const db = getDatabase();
+/*const reference = ref(db, 'friends' + friendId);
+
+set(reference, {
+  friendemail: this.friendemail,
+});*/
 export default {
   data() {
     return {
       friendemail: null,
     };
   },
+  //Methods sends data to data
   methods: {
     addFriend(){
-      const friendId = Date.now();
+      createFriend(getAuth(), this.friendemail)
+        .then((userCredential) => {
+          const friendId = userCredential.user;
       set(ref(db, "friends/" + friendId), {
         friendemail: this.friendemail,
       });
+      alert("Successfully added!");
+          router.push("/friends");
+        })
+      
     },
   },
 };
