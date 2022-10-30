@@ -16,8 +16,7 @@
         <div>
         <button
           @click="addFriend"
-          class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
-        >
+          class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
           Add
         </button>
       </div>
@@ -34,9 +33,9 @@ export default {
     };
   },
   methods: {
-    addFriend() {
+    addFriend(){
       const friendId = Date.now();
-      set(ref(db, "friend/" + friendId), {
+      set(ref(db, "friends/" + friendId), {
         friendemail: this.friendemail,
       });
     },

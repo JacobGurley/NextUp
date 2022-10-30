@@ -140,4 +140,11 @@
 .subnav:hover .subnav-content {
   display: block;
 }
+/*Moves the create team form*/
+.friend{
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  }
 </style>
