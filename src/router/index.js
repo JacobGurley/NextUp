@@ -36,6 +36,10 @@ const router = createRouter({
       path: "/createteam",
       component: () => import("../components/CreateTeamPage.vue")
     },
+    {
+      path: "/friends",
+      component: () => import("../components/FriendsPage.vue")
+    },
   ],
 });
 

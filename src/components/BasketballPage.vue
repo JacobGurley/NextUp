@@ -13,8 +13,8 @@
   <a href="#about">About</a>>
   <a href="#notifications">Notifications</a>
   <a href="#messages">Messages</a>
-  <a href="#friends">Friends</a>
-
+  <a href="http://localhost:8080/friends">Friends</a>
+  
   <div class="subnav">
     <button class="subnavbtn">Tutorials <i class="fa fa-caret-down"></i></button>
     <div class="subnav-content">
