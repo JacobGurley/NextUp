@@ -8,13 +8,17 @@
       'background-repeat': 'no-repeat',
       'background-size': 'cover',
     }"
-  ></div>
+  >
+    <SearchBar />
+  </div>
 </template>
 <script>
 import Nav from "./NavBar.vue";
+import SearchBar from "./SearchBar.vue";
 export default {
   components: {
     Nav,
+    SearchBar,
   },
 };
 </script>

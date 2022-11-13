@@ -65,7 +65,6 @@ import router from "../router";
 const isLoggedIn = ref(false);
 let auth;
 onMounted(() => {
-  console.log("in onmounted");
   auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     console.log(isLoggedIn);

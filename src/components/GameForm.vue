@@ -97,6 +97,7 @@ export default {
         sport: this.sport,
         numberofplayers: this.numPlayers,
         location: this.location,
+        gid: gameId,
       });
       this.roomName = null;
       this.sport = null;
