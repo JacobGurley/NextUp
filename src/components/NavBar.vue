@@ -33,6 +33,14 @@
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link
+              to="rateplayer"
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+            >
+              <span class="ml-2">Rate Player</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
             <a
               class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
               ><span class="ml-2">Tutorial</span>
