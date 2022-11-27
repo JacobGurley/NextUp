@@ -7,12 +7,13 @@
           'url(https://image.roku.com/blog/wp-content/uploads/2020/07/Live_Sports_graphic_1200x628.jpg)',
         'background-repeat': 'no-repeat',
         'background-size': 'cover',
-      }"
-    >
+      }">
+      <!--Calling LocationReviewForm-->
       <LocationReviewForm />
     </div>
   </template>
 
+  <!--Importing LocationReviewForm and Nav-->
   <script scoped>
   import LocationReviewForm from "./LocationReviewForm.vue";
   import Nav from "./NavBar.vue";
@@ -25,6 +26,7 @@
   };
   </script>
 
+  <!--Styling-->
   <style scoped>
   .location-review {
     display: flex;

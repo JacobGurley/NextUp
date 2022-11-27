@@ -24,6 +24,10 @@ const router = createRouter({
       path: "/rateplayer",
       component: () => import("../components/RatePlayerPage.vue"),
     },
+    {
+      path: "/locationreview",
+      component: () => import("../components/LocationReviewPage.vue"),
+    },
   ],
 });
 
