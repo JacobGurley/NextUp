@@ -28,6 +28,10 @@ const router = createRouter({
       path: "/contactpage",
       component: () => import("../components/ContactPage.vue"),
     },
+    {
+      path: "/editprofile",
+      component: () => import("../components/EditProfilePage.vue"),
+    },
   ],
 });
 

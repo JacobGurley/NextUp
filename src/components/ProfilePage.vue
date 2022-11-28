@@ -15,6 +15,14 @@
         <h1>Age</h1>
         <h1>Height</h1>
     </div>
+    <div>
+      <button
+        @click="submit"
+        class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Submit
+      </button>
+    </div>
     </body>
     <profile />
   </template>
