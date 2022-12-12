@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import "v-calendar/dist/style.css";
 import VCalendar from "v-calendar";
+import VueGoogleMaps from "@fawmi/vue-google-maps";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -27,4 +28,10 @@ initializeApp(firebaseConfig);
 const app = createApp(App);
 app.use(router);
 app.use(VCalendar, {});
+app.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyB2Fv6Fie1aw7WBDO7CWDGxYezS6tlj1Pg",
+    libraries: "places",
+  },
+});
 app.mount("#app");
