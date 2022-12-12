@@ -21,6 +21,7 @@
           <p>Sport: {{ game.sport }}</p>
           <p>Location: {{ game.location }}</p>
           <p>Number of Players: {{ game.numberofplayers }}</p>
+          <button class="text-green-600">Join Game</button>
         </div>
       </div>
     </div>

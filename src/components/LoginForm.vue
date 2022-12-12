@@ -84,7 +84,7 @@ input {
 }
 input::placeholder {
   font-size: 10px;
-  font-family: "Montserrat";
+  font-family: "Poppins";
   font-weight: 300;
   color: white;
 }
@@ -101,7 +101,7 @@ input::placeholder {
   border-radius: 5px;
 }
 .login-button {
-  font-family: "Montserrat";
+  font-family: "Poppins";
   color: black;
   font-weight: 600;
   border: none;
