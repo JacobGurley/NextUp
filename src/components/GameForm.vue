@@ -11,6 +11,7 @@
         </label>
         <input
           v-model="roomName"
+          placeholder="Enter Room Name"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="roomname"
           type="text"
@@ -22,6 +23,7 @@
         </label>
         <input
           v-model="sport"
+          placeholder="Sport"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="sport"
         />
@@ -32,6 +34,7 @@
         </label>
         <input
           v-model="numPlayers"
+          placeholder="Enter Number of Players"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="numberofplayers"
         />
@@ -40,11 +43,16 @@
         <label class="block text-white text-sm font-bold mb-2" for="sport">
           Location
         </label>
-        <input
+        <!-- <input
           v-model="location"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          id="location"
-        />
+        /> -->
+        <GMapAutocomplete
+          ref="location"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          @place_changed="setPlace"
+        >
+        </GMapAutocomplete>
       </div>
       <!-- <div class="mb-6">
         <label class="block text-white text-sm font-bold mb-2" for="sport">
@@ -102,6 +110,12 @@ export default {
       this.roomName = null;
       this.sport = null;
       this.numPlayers = null;
+      this.$refs.location.$el.value = null;
+    },
+    setPlace(place) {
+      this.location = place.formatted_address;
+    },
+    clearLocation() {
       this.location = null;
     },
     resetError() {
