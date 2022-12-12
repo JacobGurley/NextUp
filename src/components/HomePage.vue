@@ -21,6 +21,22 @@ export default {
     SearchBar,
   },
 };
+//Notification feature
+
+  const notification = new Notification("Welcome to NextUp!", {
+    body: "Thanks for turning on notifications! You can turn them off anytime you'd like."
+  });
+console.log(Notification.permission);
+if (Notification.permission == "granted") {
+  notification;
+} else if (Notification.permission != "denied") {
+  Notification.requestPermission().then(permission => {
+    if (permission == "granted") {
+      notification;
+
+    }
+  });
+}
 </script>
 <style scoped>
 h1 {

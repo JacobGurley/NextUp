@@ -12,6 +12,7 @@
             </label>
             <input
             v-model="playerName"
+            placeholder="Enter Player's Name"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="playername"
             type="text"
@@ -24,6 +25,7 @@
             </label>
             <input
             v-model="sport"
+            placeholder="Enter Sport"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="sport"
             type="text"
@@ -54,6 +56,7 @@
         </label>
         <input
           v-model="description"
+          placeholder="Enter Description"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="rating"
           type="text"
@@ -164,7 +167,10 @@ export default {
 
       if (this.validationErrors.length <= 0) {
         this.ratePlayer();
-        alert("Rating has been submitted!");
+        const rate = new Notification("Rating Submitted", {
+          body: "Thank you for your submission."
+        });
+        rate;
         router.push("/home");
       }
     },
