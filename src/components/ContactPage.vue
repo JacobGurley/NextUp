@@ -1,7 +1,7 @@
 <template>
   <Nav />
   <div
-    class="location-review"
+    class="create-game"
     :style="{
       'background-image':
         'url(https://image.roku.com/blog/wp-content/uploads/2020/07/Live_Sports_graphic_1200x628.jpg)',
@@ -9,32 +9,22 @@
       'background-size': 'cover',
     }"
   >
-    <!--Calling LocationReviewForm-->
-    <div class="flex justify-center align-center">
-      <LocationReviewForm />
-      <LocationReview />
-    </div>
+    <ContactForm />
   </div>
 </template>
-
-<!--Importing LocationReviewForm and Nav-->
 <script scoped>
-import LocationReviewForm from "./LocationReviewForm.vue";
-import LocationReview from "./LocationReview.vue";
+import ContactForm from "./ContactForm.vue";
 import Nav from "./NavBar.vue";
 
 export default {
   components: {
-    LocationReviewForm,
-    LocationReview,
+    ContactForm,
     Nav,
   },
 };
 </script>
-
-<!--Styling-->
 <style scoped>
-.location-review {
+.create-game {
   display: flex;
   justify-content: center;
   align-items: center;

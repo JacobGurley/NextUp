@@ -3,20 +3,16 @@
   <div class="w-full max-w-xs">
     <form class="bg-neutral-600 shadow-md rounded px-10 pt-10 pb-8 mb-4">
       <h1 class="text-white mb-10 font-bold text-xl">Location Review</h1>
-      <div class="mb-4">
-        <label
-          class="block text-white text-sm font-bold mb-2"
-          for="locationAddress"
-        >
-          Location Address
+      <div class="mb-6">
+        <label class="block text-white text-sm font-bold mb-2" for="sport">
+          Location
         </label>
-        <input
-          v-model="locationAddress"
-          placeholder="Enter a Location"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="locationaddress"
-          type="text"
-        />
+        <GMapAutocomplete
+          ref="location"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          @place_changed="setPlace"
+        >
+        </GMapAutocomplete>
       </div>
       <!--Star rating system-->
       <div class="block text-white text-sm font-bold mb-10">
@@ -111,6 +107,9 @@ export default {
         comments: this.comments,
         starRating: this.starRating,
       });
+    },
+    setPlace(place) {
+      this.locationAddress = place.formatted_address;
     },
   },
 };

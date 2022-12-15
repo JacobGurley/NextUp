@@ -53,6 +53,10 @@ const router = createRouter({
       component: () => import("../components/SoccerPage.vue"),
     },
     {
+      path: "/contact",
+      component: () => import("../components/ContactPage.vue"),
+    },
+    {
       path: "/myfriends",
       component: () => import("../components/MyFriendsPage.vue"),
     },
