@@ -1,24 +1,29 @@
 <template>
-    <Nav />
-    <div
-      class="rate-player"
-      :style="{
-        'background-image':
-          'url(https://image.roku.com/blog/wp-content/uploads/2020/07/Live_Sports_graphic_1200x628.jpg)',
-        'background-repeat': 'no-repeat',
-        'background-size': 'cover',
-      }"
-    >
+  <Nav />
+  <div
+    class="rate-player"
+    :style="{
+      'background-image':
+        'url(https://image.roku.com/blog/wp-content/uploads/2020/07/Live_Sports_graphic_1200x628.jpg)',
+      'background-repeat': 'no-repeat',
+      'background-size': 'cover',
+    }"
+  >
+    <div class="flex justify-center align-center">
       <RatePlayerForm />
+      <PlayerRating />
     </div>
-  </template>
-  <script scoped>
-  import RatePlayerForm from "./RatePlayerForm";
-  import Nav from "./NavBar.vue";
+  </div>
+</template>
+<script scoped>
+import RatePlayerForm from "./RatePlayerForm.vue";
+import PlayerRating from "./PlayerRatings.vue";
+import Nav from "./NavBar.vue";
 
-  export default {
+export default {
   components: {
     RatePlayerForm,
+    PlayerRating,
     Nav,
   },
 };

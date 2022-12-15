@@ -1,57 +1,88 @@
 <template>
-    <div class="w-full max-w-xs">
-        <form
-        @submit.prevent="onSubmit"
-        class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4" 
-        >
-        <h1 class="text-white mb-5 font-bold text-xl">Rate a Player</h1>
+  <div class="w-full max-w-xs">
+    <form
+      @submit.prevent="onSubmit"
+      class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <h1 class="text-white mb-5 font-bold text-xl">Rate a Player</h1>
 
-        <div class="mb-4">
-            <label class="block text-white text-sm font-bold mb-2" for="playername">
-                Player's Name
-            </label>
-            <input
-            v-model="playerName"
-            placeholder="Enter Player's Name"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="playername"
-            type="text"
-            />
-
-        </div>
-        <div class="mb-4">
-            <label class="block text-white text-sm font-bold mb-2" for="sport">
-                Sport
-            </label>
-            <input
-            v-model="sport"
-            placeholder="Enter Sport"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="sport"
-            type="text"
-            />
-
-        </div>
-       <!--Star rating system-->
-       <div class="mb-4"> 
-        <label class="block text-white text-sm font-bold " for="rating">
-                Rating
-        </label>
-          <div class="stars">
-            <input v-model="starRating" type="radio" id="five" name="rate" value="5">
-            <label for="five"></label>
-            <input v-model="starRating" type="radio" id="four" name="rate" value="4">
-            <label for="four"></label>
-            <input v-model="starRating" type="radio" id="three" name="rate" value="3">
-            <label for="three"></label>
-            <input v-model="starRating" type="radio" id="two" name="rate" value="2">
-            <label for="two"></label>
-            <input v-model="starRating" type="radio" id="one" name="rate" value="1">
-            <label for="one"></label>
-          </div>
-        </div>
       <div class="mb-4">
-        <label class="block text-white text-sm font-bold mb-2" for="description">
+        <label class="block text-white text-sm font-bold mb-2" for="playername">
+          Player's Name
+        </label>
+        <input
+          v-model="playerName"
+          placeholder="Enter Player's Name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="playername"
+          type="text"
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold mb-2" for="sport">
+          Sport
+        </label>
+        <input
+          v-model="sport"
+          placeholder="Enter Sport"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="sport"
+          type="text"
+        />
+      </div>
+      <!--Star rating system-->
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold" for="rating">
+          Rating
+        </label>
+        <div class="stars">
+          <input
+            v-model="starRating"
+            type="radio"
+            id="five"
+            name="rate"
+            value="5"
+          />
+          <label for="five"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="four"
+            name="rate"
+            value="4"
+          />
+          <label for="four"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="three"
+            name="rate"
+            value="3"
+          />
+          <label for="three"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="two"
+            name="rate"
+            value="2"
+          />
+          <label for="two"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="one"
+            name="rate"
+            value="1"
+          />
+          <label for="one"></label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-white text-sm font-bold mb-2"
+          for="description"
+        >
           Reason for your Rating?
         </label>
         <input
@@ -84,12 +115,10 @@
         </ul>
       </div>
     </div>
-   
-    </div>
+  </div>
 </template>
 <script>
 import { getDatabase, ref, set } from "firebase/database";
-import router from "../router";
 const db = getDatabase();
 export default {
   data() {
@@ -105,61 +134,52 @@ export default {
     //rate player function
     ratePlayer() {
       const playerId = Date.now();
-      set(ref(db, "ratings/" + playerId),{
+      set(ref(db, "ratings/" + playerId), {
         playerName: this.playerName,
         sport: this.sport,
         starRating: this.starRating,
         description: this.description,
-        
       });
-      
+
       this.playerName = null;
       this.sport = null;
       this.starRating = null;
       this.description = null;
-
     },
     resetError() {
       this.validationErrors = [];
-
     },
     //validate errors function
     validate() {
-    this.resetError();
-   
+      this.resetError();
 
-    if (!this.playerName) {
+      if (!this.playerName) {
         this.validationErrors.push(
           "<strong>Player's Name</strong> cannot be empty."
         );
       }
 
-    if (!isNaN(this.playerName)) {
+      if (!isNaN(this.playerName)) {
         this.validationErrors.push(
           "<strong>Player's Name</strong> cannot be a number."
         );
       }
 
-    if (!this.sport) {
-        this.validationErrors.push(
-          "<strong>Sport</strong> cannot be empty."
-        );
+      if (!this.sport) {
+        this.validationErrors.push("<strong>Sport</strong> cannot be empty.");
       }
 
-    if (!isNaN(this.sport)) {
+      if (!isNaN(this.sport)) {
         this.validationErrors.push(
           "<strong>Sport</strong> cannot be a number."
         );
       }
 
-    if (!this.starRating) {
-        this.validationErrors.push(
-          "<strong>Rating</strong> cannot be empty."
-        );
+      if (!this.starRating) {
+        this.validationErrors.push("<strong>Rating</strong> cannot be empty.");
       }
 
-
-    if (!this.description) {
+      if (!this.description) {
         this.validationErrors.push(
           "<strong>Description</strong> cannot be empty."
         );
@@ -168,27 +188,22 @@ export default {
       if (this.validationErrors.length <= 0) {
         this.ratePlayer();
         const rate = new Notification("Rating Submitted", {
-          body: "Thank you for your submission."
+          body: "Thank you for your submission.",
         });
         rate;
-        router.push("/home");
       }
     },
-
   },
-
-
 };
-
 </script>
 
 <style>
 /*Removing circles*/
-.stars input{
+.stars input {
   display: none;
 }
 /*Size and color of the stars*/
-.stars label{
+.stars label {
   float: right;
   font-size: 37px;
   color: lightgrey;
@@ -196,23 +211,23 @@ export default {
   text-shadow: 1px 1px #bbb;
 }
 /*Adding the star*/
-.stars label:before{
-  content: '★';
+.stars label:before {
+  content: "★";
 }
 /*Styling stars*/
-.stars input:checked ~ label{
+.stars input:checked ~ label {
   color: gold;
-  text-shadow: 1px 1px #c60 
+  text-shadow: 1px 1px #c60;
 }
 /*Styling stars*/
 .stars:not(:checked) > label:hover,
-.stars:not(:checked) > label:hover ~ label{
+.stars:not(:checked) > label:hover ~ label {
   color: gold;
 }
 /*Styling stars*/
 .stars input:checked > label:hover,
-.stars input:checked > label:hover ~ label{
+.stars input:checked > label:hover ~ label {
   color: gold;
-  text-shadow: 1px 1px goldenrod
+  text-shadow: 1px 1px goldenrod;
 }
 </style>
