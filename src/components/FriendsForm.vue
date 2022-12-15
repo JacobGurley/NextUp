@@ -1,6 +1,6 @@
 <template>
   <div class="w-full max-w-xs">
-    <form class="bg-neutral-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="text-white mb-5 font-bold text-xl">Add Friend</h1>
       <div class="mb-4">
         <label class="block text-white text-sm font-bold mb-2" for="search">
@@ -8,6 +8,7 @@
         </label>
         <input
           v-model="friendemail"
+          placeholder="Enter Friend's Email"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="friend"
           type="text"
@@ -20,6 +21,15 @@
         >
           Add
         </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="w-full max-w-xs">
+    <form class="bg-stone-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h1 class="text-white mb-5 font-bold text-xl">My Friends</h1>
+      <div>
+        <router-link :to="{ path: 'myfriends' }"><button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"> My Friends</button></router-link>
       </div>
     </form>
   </div>
@@ -41,6 +51,6 @@ export default {
         friendemail: this.friendemail,
       });
     },
-  },
+},
 };
 </script>

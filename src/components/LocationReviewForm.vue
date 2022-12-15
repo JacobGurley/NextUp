@@ -12,6 +12,7 @@
         </label>
         <input
           v-model="locationAddress"
+          placeholder="Enter a Location"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="locationaddress"
           type="text"
@@ -70,6 +71,7 @@
         </label>
         <textarea
           v-model="comments"
+          placeholder="Enter Your Comments"
           id="comments"
           name="commentsonlocation"
           rows="4"
