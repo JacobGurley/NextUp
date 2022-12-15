@@ -13,12 +13,12 @@
     </div>
   </template>
   <script scoped>
-  import ProfileEditForm from "./ProfileEditForm.vue";
+  //import ProfileEditForm from "./ProfileEditForm.vue";
   import Nav from "./NavBar.vue";
   
   export default {
     components: {
-      ProfileEditForm,
+     // ProfileEditForm,
       Nav,
     },
   };
