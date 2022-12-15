@@ -1,8 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "v-calendar/dist/style.css";
-import VCalendar from "v-calendar";
+// import "v-calendar/dist/style.css";
+// import VCalendar from "v-calendar";
+import DatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 import VueGoogleMaps from "@fawmi/vue-google-maps";
 
 // Import the functions you need from the SDKs you need
@@ -27,7 +29,7 @@ initializeApp(firebaseConfig);
 
 const app = createApp(App);
 app.use(router);
-app.use(VCalendar, {});
+app.component("DatePicker", DatePicker);
 app.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyB2Fv6Fie1aw7WBDO7CWDGxYezS6tlj1Pg",

@@ -43,10 +43,6 @@
         <label class="block text-white text-sm font-bold mb-2" for="sport">
           Location
         </label>
-        <!-- <input
-          v-model="location"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        /> -->
         <GMapAutocomplete
           ref="location"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -54,12 +50,17 @@
         >
         </GMapAutocomplete>
       </div>
-      <!-- <div class="mb-6">
+      <div class="mb-6">
         <label class="block text-white text-sm font-bold mb-2" for="sport">
           Date / Time
         </label>
-        <v-date-picker v-model="date" mode="time" />
-      </div> -->
+        <DatePicker
+          v-model="date"
+          :enable-time-picker="true"
+          :is-24="false"
+          :preview-format="format"
+        ></DatePicker>
+      </div>
       <div>
         <button
           @click="validate"
@@ -94,6 +95,7 @@ export default {
       sport: null,
       numPlayers: null,
       location: null,
+      date: null,
       validationErrors: [],
     };
   },
@@ -105,12 +107,14 @@ export default {
         sport: this.sport,
         numberofplayers: this.numPlayers,
         location: this.location,
+        date: this.date.toString(),
         gid: gameId,
       });
       this.roomName = null;
       this.sport = null;
       this.numPlayers = null;
       this.$refs.location.$el.value = null;
+      this.date = null;
     },
     setPlace(place) {
       this.location = place.formatted_address;
@@ -121,6 +125,8 @@ export default {
     resetError() {
       this.validationErrors = [];
     },
+    format() {},
+
     validate() {
       // Clear the errors before we validate again
       this.resetError();

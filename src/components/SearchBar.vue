@@ -19,8 +19,9 @@
         <div class="flex-col text-white">
           <h1>Room Name:{{ game.room }}</h1>
           <p>Sport: {{ game.sport }}</p>
-          <p>Location: {{ game.location }}</p>
           <p>Number of Players: {{ game.numberofplayers }}</p>
+          <p>Location: {{ game.location }}</p>
+          <p>Date/Time: {{ game.date }}</p>
           <button class="text-green-600">Join Game</button>
         </div>
       </div>
