@@ -52,6 +52,10 @@ const router = createRouter({
       path: "/soccer",
       component: () => import("../components/SoccerPage.vue"),
     },
+    {
+      path: "/contact",
+      component: () => import("../components/ContactPage.vue"),
+    },
   ],
 });
 
