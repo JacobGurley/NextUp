@@ -72,10 +72,11 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
+              to="contact"
               class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
               ><span class="ml-2">Contact Us</span>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
             <button
