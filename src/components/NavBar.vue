@@ -42,6 +42,22 @@
           </li>
           <li class="nav-item">
             <router-link
+              to="friends"
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+            >
+              <span class="ml-2">Friends</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
+              to="locationreview"
+              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+            >
+              <span class="m1-2">Location Review</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
               to="tournament"
               class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
             >
@@ -49,10 +65,11 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a
+            <router-link
+              to="tutorial"
               class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
               ><span class="ml-2">Tutorial</span>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
             <a

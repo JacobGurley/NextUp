@@ -28,7 +28,30 @@ const router = createRouter({
       path: "/tournament",
       component: () => import("../components/TournamentPage.vue"),
     },
-
+    {
+      path: "/locationreview",
+      component: () => import("../components/LocationReviewPage.vue"),
+    },
+    {
+      path: "/friends",
+      component: () => import("../components/FriendsPage.vue"),
+    },
+    {
+      path: "/tutorial",
+      component: () => import("../components/TutorialPage.vue"),
+    },
+    {
+      path: "/basketball",
+      component: () => import("../components/BasketballPage.vue"),
+    },
+    {
+      path: "/football",
+      component: () => import("../components/FootballPage.vue"),
+    },
+    {
+      path: "/soccer",
+      component: () => import("../components/SoccerPage.vue"),
+    },
   ],
 });
 
