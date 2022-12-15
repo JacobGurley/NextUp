@@ -198,6 +198,11 @@ export default {
 </script>
 
 <style>
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*Removing circles*/
 .stars input {
   display: none;
@@ -205,7 +210,7 @@ export default {
 /*Size and color of the stars*/
 .stars label {
   float: right;
-  font-size: 37px;
+  font-size: 30px;
   color: lightgrey;
   margin: 0 10px;
   text-shadow: 1px 1px #bbb;

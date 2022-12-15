@@ -18,38 +18,7 @@
       <div class="block text-white text-sm font-bold mb-10">
         Rating
         <div class="stars">
-          <input
-            v-model="starRating"
-            type="radio"
-            id="five"
-            name="rate"
-            value="5"
-          />
-          <label for="five"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="four"
-            name="rate"
-            value="4"
-          />
-          <label for="four"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="three"
-            name="rate"
-            value="3"
-          />
-          <label for="three"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="two"
-            name="rate"
-            value="2"
-          />
-          <label for="two"></label>
+          <label for="one"></label>
           <input
             v-model="starRating"
             type="radio"
@@ -57,7 +26,38 @@
             name="rate"
             value="1"
           />
-          <label for="one"></label>
+          <label for="two"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="two"
+            name="rate"
+            value="2"
+          />
+          <label for="three"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="three"
+            name="rate"
+            value="3"
+          />
+          <label for="four"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="four"
+            name="rate"
+            value="4"
+          />
+          <label for="five"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="five"
+            name="rate"
+            value="5"
+          />
         </div>
       </div>
       <!--Text Block for comments-->
@@ -116,6 +116,12 @@ export default {
 </script>
 
 <style>
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 /*Removing circles*/
 .stars input {
   display: none;
@@ -123,7 +129,7 @@ export default {
 /*Size and color of the stars*/
 .stars label {
   float: right;
-  font-size: 30px;
+  font-size: 25px;
   color: lightgrey;
   margin: 0 10px;
   text-shadow: 1px 1px #bbb;
