@@ -1,7 +1,7 @@
 <!--This creates a form that allows users to type. It also links to firebase.-->
 <template>
     <div class="w-full max-w-xs">
-      <form class="bg-neutral-700 shadow-md rounded px-10 pt-10 pb-8 mb-4">
+      <form class="bg-neutral-600 shadow-md rounded px-10 pt-10 pb-8 mb-4">
         <h1 class="text-white mb-10 font-bold text-xl">Location Review</h1>
         <div class="mb-4">
           <label class="block text-white text-sm font-bold mb-2" for="locationAddress">
