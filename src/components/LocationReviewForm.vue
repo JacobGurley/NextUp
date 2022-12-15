@@ -18,39 +18,6 @@
       <div class="block text-white text-sm font-bold mb-10">
         Rating
         <div class="stars">
-          <label for="one"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="one"
-            name="rate"
-            value="1"
-          />
-          <label for="two"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="two"
-            name="rate"
-            value="2"
-          />
-          <label for="three"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="three"
-            name="rate"
-            value="3"
-          />
-          <label for="four"></label>
-          <input
-            v-model="starRating"
-            type="radio"
-            id="four"
-            name="rate"
-            value="4"
-          />
-          <label for="five"></label>
           <input
             v-model="starRating"
             type="radio"
@@ -58,6 +25,39 @@
             name="rate"
             value="5"
           />
+          <label for="five"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="four"
+            name="rate"
+            value="4"
+          />
+          <label for="four"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="three"
+            name="rate"
+            value="3"
+          />
+          <label for="three"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="two"
+            name="rate"
+            value="2"
+          />
+          <label for="two"></label>
+          <input
+            v-model="starRating"
+            type="radio"
+            id="one"
+            name="rate"
+            value="1"
+          />
+          <label for="one"></label>
         </div>
       </div>
       <!--Text Block for comments-->
