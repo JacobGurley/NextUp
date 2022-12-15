@@ -10,18 +10,23 @@
     }"
   >
     <!--Calling LocationReviewForm-->
-    <LocationReviewForm />
+    <div class="flex justify-center align-center">
+      <LocationReviewForm />
+      <LocationReview />
+    </div>
   </div>
 </template>
 
 <!--Importing LocationReviewForm and Nav-->
 <script scoped>
 import LocationReviewForm from "./LocationReviewForm.vue";
+import LocationReview from "./LocationReview.vue";
 import Nav from "./NavBar.vue";
 
 export default {
   components: {
     LocationReviewForm,
+    LocationReview,
     Nav,
   },
 };
