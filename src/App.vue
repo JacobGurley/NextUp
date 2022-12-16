@@ -10,6 +10,9 @@ export default {
 </script>
 
 <style>
+html.dark {
+  color-scheme: dark;
+}
 #app {
   font-family: Poppins, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

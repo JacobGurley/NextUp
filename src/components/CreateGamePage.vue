@@ -23,7 +23,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style setup>
 .create-game {
   display: flex;
   justify-content: center;
