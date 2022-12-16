@@ -9,31 +9,26 @@
       'background-size': 'cover',
     }"
   >
+    <DarkMode />
     <SearchBar />
   </div>
 </template>
-<script>
+<script setup>
 import Nav from "./NavBar.vue";
 import SearchBar from "./SearchBar.vue";
-export default {
-  components: {
-    Nav,
-    SearchBar,
-  },
-};
+import DarkMode from "./DarkMode.vue";
 //Notification feature
 
-  const notification = new Notification("Welcome to NextUp!", {
-    body: "Thanks for turning on notifications! You can turn them off anytime you'd like."
-  });
+const notification = new Notification("Welcome to NextUp!", {
+  body: "Thanks for turning on notifications! You can turn them off anytime you'd like.",
+});
 console.log(Notification.permission);
 if (Notification.permission == "granted") {
   notification;
 } else if (Notification.permission != "denied") {
-  Notification.requestPermission().then(permission => {
+  Notification.requestPermission().then((permission) => {
     if (permission == "granted") {
       notification;
-
     }
   });
 }
